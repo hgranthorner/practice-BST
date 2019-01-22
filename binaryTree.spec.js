@@ -31,4 +31,40 @@ describe('class BinarySearchTree', () => {
     BST.insert(12)
     expect(BST.right.left.value).toBe(12)
   })
+  it('can search through inOrder', () => {
+    const testArr = []
+    const addEachNode = (val) => {
+      testArr.push(val)
+    }
+    BST.insert(5)
+    BST.insert(2)
+    BST.insert(15)
+    BST.insert(12)
+    BST.depthFirst(addEachNode,'inOrder')
+    expect(testArr).toEqual([2,5,10,12,15])
+  })
+  it('can search through preOrder', () => {
+    const testArr = []
+    const addEachNode = (val) => {
+      testArr.push(val)
+    }
+    BST.insert(5)
+    BST.insert(2)
+    BST.insert(15)
+    BST.insert(12)
+    BST.depthFirst(addEachNode,'preOrder')
+    expect(testArr).toEqual([10, 5, 2, 15, 12])
+  })
+  it('can search through postOrder', () => {
+    const testArr = []
+    const addEachNode = (val) => {
+      testArr.push(val)
+    }
+    BST.insert(5)
+    BST.insert(2)
+    BST.insert(15)
+    BST.insert(12)
+    BST.depthFirst(addEachNode,'postOrder')
+    expect(testArr).toEqual([2,5,12,15,10])
+  })
 })
